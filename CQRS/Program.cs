@@ -181,6 +181,7 @@ namespace CSharp.CQRS.Demo
                 Console.WriteLine(e);
             }
 
+            // Illustrates removal of remaining event
             age = eb.Query<int>(new AgeQuery { Target = p });
             Console.WriteLine(age);
 
