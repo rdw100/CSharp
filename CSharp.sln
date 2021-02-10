@@ -30,7 +30,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.CQRS.Demo", "CQRS\CSharp.CQRS.Demo.csproj", "{FCF0C472-E441-4625-89D6-F31A3CC2B8FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.9.Demo", "CSharp.9.Demo\CSharp.9.Demo.csproj", "{182623F3-E115-43B8-9A52-784229E47F1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.9.Demo", "CSharp.9.Demo\CSharp.9.Demo.csproj", "{182623F3-E115-43B8-9A52-784229E47F1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.8.Demo", "CSharp.8.Demo\CSharp.8.Demo.csproj", "{CCB2C8BC-C247-418D-8861-B6F90CA8FA11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,6 +88,10 @@ Global
 		{182623F3-E115-43B8-9A52-784229E47F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{182623F3-E115-43B8-9A52-784229E47F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{182623F3-E115-43B8-9A52-784229E47F1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCB2C8BC-C247-418D-8861-B6F90CA8FA11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCB2C8BC-C247-418D-8861-B6F90CA8FA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCB2C8BC-C247-418D-8861-B6F90CA8FA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCB2C8BC-C247-418D-8861-B6F90CA8FA11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
