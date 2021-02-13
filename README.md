@@ -1,3 +1,3 @@
 # CSharp
 
-The CSharp console application demonstrates assorted C# language functionality using Visual Studio 2019 16.7.6 and .NET Core 3.1.403.
+The CSharp console application demonstrates C# language functionality using Visual Studio 2019 16.8.4 and .NET 5.
