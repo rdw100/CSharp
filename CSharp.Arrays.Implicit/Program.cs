@@ -174,12 +174,24 @@ namespace CSharp.Arrays.Implicit
 
             // C# Nested Typed List serialized into 2d array.
             List<List<Row>> nestedRows = new List<List<Row>>();
-            nestedRows.Add(new List<Row>(rows));
+            //nestedRows.Add(new List<Row>(rows));
             nestedRows.Add(new List<Row>() { new Row(36, 37, 38, 39, 40, 41, 42) });
             nestedRows.Add(new List<Row>() { new Row(43, 44, 45, 46, 47, 48, 49) });
             nestedRows.Add(new List<Row>() { new Row(50, 51, 52, 53, 54, 55, 56) });
             string pJson = JsonSerializer.Serialize(nestedRows);
             Console.WriteLine("Nested Typed List: " + pJson);
+
+            // C# Strongly Typed List/Nested List serialized into 2d array.            
+            CDataTable chart = new CDataTable();
+            chart.cols = cols;
+            chart.rows = nestedRows;
+
+            // Unreadable as Array; almost Google DataTable w/o "c" "v" notation
+            string qJson = JsonSerializer.Serialize(chart);
+            Console.WriteLine("Complex Type:" + qJson);
+
+            string rJson = JsonSerializer.Serialize(chart.cols) + "," + JsonSerializer.Serialize(chart.rows);
+            Console.WriteLine("Append List/Nested List: " + rJson);
         }
     }
 
