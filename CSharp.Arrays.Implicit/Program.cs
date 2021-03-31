@@ -186,11 +186,14 @@ namespace CSharp.Arrays.Implicit
             chart.cols = cols;
             chart.rows = nestedRows;
 
+            // Serialize Complex Type
             // Unreadable as Array; almost Google DataTable w/o "c" "v" notation
             string qJson = JsonSerializer.Serialize(chart);
             Console.WriteLine("Complex Type:" + qJson);
 
-            string rJson = JsonSerializer.Serialize(chart.cols) + "," + JsonSerializer.Serialize(chart.rows);
+            // Deserialize Complex Type
+            CDataTable newChart = JsonSerializer.Deserialize<CDataTable>(qJson);
+            string rJson = JsonSerializer.Serialize(newChart.cols) + "," + JsonSerializer.Serialize(newChart.rows);
             Console.WriteLine("Append List/Nested List: " + rJson);
         }
     }
