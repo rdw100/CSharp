@@ -195,6 +195,50 @@ namespace CSharp.Arrays.Implicit
             CDataTable newChart = JsonSerializer.Deserialize<CDataTable>(qJson);
             string rJson = JsonSerializer.Serialize(newChart.cols) + "," + JsonSerializer.Serialize(newChart.rows);
             Console.WriteLine("Append List/Nested List: " + rJson);
+
+            // Build Google DataTable Structure in C#
+            // Columns
+            Console.WriteLine("****************************");
+            List<GugCol> gCols = new List<GugCol>()
+            {
+                new GugCol { id = "lengthincm", label = "Lengthincm", type = "number" },
+                new GugCol { id = "p3", label = "P3", type = "number" },
+                new GugCol { id = "p15", label = "P15", type = "number" },
+                new GugCol { id = "p50", label = "P50", type = "number" },
+                new GugCol { id = "p85", label = "P85", type = "number" },
+                new GugCol { id = "p97", label = "P97", type = "number" },
+                new GugCol { id = "score", label = "Score", type = "number" },
+            };
+
+            List<GugRow> gRows = new List<GugRow>();
+            foreach (var item in rows)
+            {
+                gRows.Add(new GugRow 
+                { 
+                    c = new List<GugC>() 
+                    {
+                        new GugC { v = item.Lengthincm },
+                        new GugC { v = item.P3 },
+                        new GugC { v = item.P15 },
+                        new GugC { v = item.P50 },
+                        new GugC { v = item.P85 },
+                        new GugC { v = item.P97 },
+                        new GugC { v = item.Score }
+                    }
+                });
+            }
+
+            // Datatable
+            GugDataTable gChart = new GugDataTable();
+            gChart.cols = gCols;
+            gChart.rows = gRows;
+
+            string sJson = JsonSerializer.Serialize(gChart);
+            Console.WriteLine("DataTable Serialized: " + sJson);
+
+            GugDataTable newGChart = JsonSerializer.Deserialize<GugDataTable>(sJson);
+            string tJson = JsonSerializer.Serialize(newGChart);
+            Console.WriteLine("DataTable Deserialized: " + tJson);
         }
     }
 
@@ -252,5 +296,29 @@ namespace CSharp.Arrays.Implicit
         public decimal P85 { get; set; }
         public decimal P97 { get; set; }
         public decimal? Score { get; set; }
+    }
+
+    public class GugDataTable
+    {
+        public List<GugCol> cols { get; set; }
+        public List<GugRow> rows { get; set; }
+    }
+
+    public class GugCol
+    {
+        public string id { get; set; }
+        public string label { get; set; }
+        public string type { get; set; }
+    }
+
+    public class GugC
+    {
+        public dynamic v { get; set; }
+        //public object f { get; set; }
+    }
+
+    public class GugRow
+    {
+        public List<GugC> c { get; set; }
     }
 }
