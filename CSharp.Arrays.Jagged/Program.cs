@@ -24,19 +24,16 @@ namespace CSharp.Arrays.Jagged
             // Jagged array to store customer orders
             string[][] jaggedOrders = new string[3][];
 
-            jaggedOrders[0] = new string[3];
-            jaggedOrders[1] = new string[1];
-            jaggedOrders[2] = new string[2];
-
             // Assign values to individual array elements
+            jaggedOrders[0] = new string[3];
             jaggedOrders[0][0] = "Chai";
             jaggedOrders[0][1] = "Ikura";
             jaggedOrders[0][2] = "Chang";
 
+            jaggedOrders[1] = new string[1];
             jaggedOrders[1][0] = "Aniseed Syrup";
 
-            jaggedOrders[2][0] = "Konbu";
-            jaggedOrders[2][1] = "Tofu";
+            jaggedOrders[2] = new string[2] { "Konbu", "Tofu" };
 
             // Loop thru customers and print orders
             for (int i = 0; i < jaggedOrders.Length; i++)
@@ -50,6 +47,11 @@ namespace CSharp.Arrays.Jagged
                 }
                 Console.WriteLine();
             }
+
+            // Keep the console window open in debug mode.
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
+
             /*  Output:
                 John
                 ---------------
